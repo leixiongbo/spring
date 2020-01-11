@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geekcattle.mapper.blog.PicShowMapper">
+<resultMap id="BaseResultMap" type="com.geekcattle.model.blog.PicShow">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="src" jdbcType="VARCHAR" property="src" />
+    <result column="resource" jdbcType="VARCHAR" property="resource" />
+    <result column="species" jdbcType="VARCHAR" property="species" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="pictime" jdbcType="DATE" property="pictime" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+
+</resultMap>
+
+<!--根据用户名获取用户信息-->
+<select id="selectAll" parameterType="String" resultMap="BaseResultMap">
+        select *  from pic_show ;
+    </select>
+
+</mapper>

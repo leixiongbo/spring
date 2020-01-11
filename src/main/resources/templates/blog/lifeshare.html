@@ -1,0 +1,211 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!--<link rel="stylesheet" href="../../static/css/font-awesome.css">-->
+    <link rel="stylesheet" href="../../static/assets/bootstrap-3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../static/css/fileinput.min.css">
+    <script src="../../static/js/upload/jquery-2.0.3.min.js"></script>
+    <!--<script src="../../static/js/jquery-3.3.1.min.js"></script>-->
+    <script src="../../static/js/upload/fileinput.min.js"></script>
+    <script src="../../static/js/upload/fileinput_locale_zh.js"></script>
+
+    <script src="../../static/assets/bootstrap-3.3.5/js/bootstrap.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // var pic1 = $("#uploadHotelPicture1Names").val();
+            // var arrPic1 = new Array();
+            // var initialPreviewConfig = new Array();
+            // if (pic1 != null && pic1 != "") {
+            //     var str1s = pic1.split(",")
+            //     for (var i = 0; i < str1s.length; i++) {
+            //         arrPic1.push('<img src="' + fileSrc + str1s[i] + '"  class="file-preview-image">');
+            //         initialPreviewConfig.push('type: "image", caption: "' + str1s[i] + '", size: 847000 ');
+            //     }
+            // }
+         //   initFileInput(arrPic1,initialPreviewConfig);
+
+            //初始化fileinput控件（第一次初始化）
+            initFileInput("uploadImg", "/api/picshow/saveImages");
+        });
+
+
+        //初始化fileinput控件（第一次初始化）
+        function initFileInput(ctrlName, uploadUrl) {
+            var control = $('#' + ctrlName);
+            control.fileinput({
+                language: 'zh', //设置语言
+                uploadUrl: uploadUrl, //上传的地址
+                allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+                showUpload: false, //是否显示上传按钮
+                showCaption: false,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            });
+        }
+
+
+
+
+        function initFileInput(arrPic1,initialPreviewConfig) {
+
+            if (arrPic1.length == 0) {
+                $('#uploadImg').fileinput({
+                    language: 'zh', //设置语言
+                    uploadUrl: "http://127.0.0.1:8004/api/picshow/saveImages",//"upload/insert", //调用上传的地址
+                    allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                    uploadAsync: true, //默认异步上传
+                    showUpload: true, //是否显示上传按钮
+                    showRemove: true, //显示移除按钮
+                    showPreview: true, //是否显示预览
+                    showCaption: false,//是否显示标题
+                    browseClass: "btn btn-primary", //按钮样式
+                    dropZoneEnabled: true,//是否显示拖拽区域
+                    //minImageWidth: 50, //图片的最小宽度
+                    //minImageHeight: 50,//图片的最小高度
+                    maxImageWidth: 1000,//图片的最大宽度
+                    maxImageHeight: 1000,//图片的最大高度
+                    maxFileSize: 1024,//单位为kb，如果为0表示不限制文件大小
+                    //minFileCount: 0,
+                    maxFileCount: 20, //表示允许同时上传的最大文件个数
+                    enctype: 'multipart/form-data',
+                    validateInitialCount: true,
+                    previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                    msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+
+                    initialPreviewAsData: true,
+                    initialPreviewShowDelete: false,
+                    initialPreview: arrPic1,
+                    initialPreviewFileType: 'image',
+                    //initialPreviewDownloadUrl: fileSrc,
+                    /*
+                       ！这里是回显的数据格式，后台查询后，按照格式展示即可，url是删除访问地址，key是删除的id
+                    initialPreviewConfig: [
+                        {type: "image", caption: "20190425094423Lighthouse.jpg", size: 847000},
+                        {type: "image", caption: "20190425094423Desert.jpg", size: 817000},  // set as raw markup
+                    ],*/
+                    initialPreviewConfig: initialPreviewConfig
+                })
+            }
+            else {
+                $('#uploadImg').fileinput({
+                    language: 'zh', //设置语言
+                    uploadUrl: "http://127.0.0.1:8004/api/picshow/saveImages",//"upload/insert", //调用上传的地址
+                    allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                    uploadAsync: true, //默认异步上传
+                    showUpload: true, //是否显示上传按钮
+                    showRemove: true, //显示移除按钮
+                    showPreview: true, //是否显示预览
+                    showCaption: false,//是否显示标题
+                    browseClass: "btn btn-primary", //按钮样式
+                    dropZoneEnabled: true,//是否显示拖拽区域
+                    //minImageWidth: 50, //图片的最小宽度
+                    //minImageHeight: 50,//图片的最小高度
+                    maxImageWidth: 1000,//图片的最大宽度
+                    maxImageHeight: 1000,//图片的最大高度
+                    maxFileSize: 1024,//单位为kb，如果为0表示不限制文件大小
+                    //minFileCount: 0,
+                    maxFileCount: 20, //表示允许同时上传的最大文件个数
+                    enctype: 'multipart/form-data',
+                    validateInitialCount: true,
+                    previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                    msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+
+                    initialPreviewAsData: true,
+                    initialPreviewShowDelete: false,
+                    initialPreview: arrPic1,
+                    initialPreviewFileType: 'image',
+                    //initialPreviewDownloadUrl: fileSrc,
+                    /*
+                       ！这里是回显的数据格式，后台查询后，按照格式展示即可，url是删除访问地址，key是删除的id
+                    initialPreviewConfig: [
+                        {type: "image", caption: "20190425094423Lighthouse.jpg", size: 847000},
+                        {type: "image", caption: "20190425094423Desert.jpg", size: 817000},  // set as raw markup
+                    ],*/
+                    initialPreviewConfig: initialPreviewConfig
+
+                })
+            }
+            /**
+             * 文件上传后调用
+             * */
+            $('#uploadImg').on("fileuploaded", function (event, data, previewId, index) {
+                var obj = data.response;
+                var picNames = "";
+                $.each(obj.fileNames, function (k, v) {
+                    if (v != null) {
+                        if (picNames != "") picNames += ","
+                        picNames = v.split("/")[v.split("/").length - 1];
+                    }
+
+                })
+
+                var names = $("#uploadHotelPicture1Names").val();
+                if (names != "") {
+                    $("#uploadHotelPicture1Names").val(names + "," + picNames);
+                } else {
+                    $("#uploadHotelPicture1Names").val(picNames);
+                }
+            });
+
+            $('#uploadImg').on('fileclear', function (event) {
+                $("#uploadHotelPicture1Names").val("");
+            });
+
+        }
+    </script>
+
+
+
+
+</head>
+<body>
+<form id="hotelAddForm" class="form-horizontal" role="form" enctype="multipart/form-data">
+    <div class="form-group div_height_60" id="logoHtPic1">
+        <label class="col-sm-3 control-label" for="form-field-1">测试上传:</label>
+
+        <div class="container kv-main  col-sm-9" style="width:70%">
+            <br>
+            <div class="form-group">
+                <!--<input id="file-1" type="file" multiple class="file-loading" data-overwrite-initial="false" data-min-file-count="2">-->
+                <input id="uploadImg" name="file" class="file" multiple type="file" data-show-caption="true">
+            </div>
+        </div>
+    </div>
+    <div class="form-group div_height_60" id="logoHtPic2">
+        <label class="col-sm-3 control-label" for="form-field-1">测试上传:</label>
+        <div class="container kv-main  col-sm-9" style="width:70%">
+            <br>
+            <div class="form-group">
+                <!--<input id="file-2" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">-->
+                <input id="file-2" name="file" multiple type="file" class="file" data-show-caption="true">
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions div_height_50" style="text-align:center;">
+        <button id="submitGo" class="btn btn-info btn-sm" type="button">
+            <i class="ace-icon fa fa-check-circle bigger-110"></i>保存继续添加
+        </button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button id="submitButton" class="btn btn-info btn-sm" type="button">
+            <i class="ace-icon fa fa-check-circle bigger-110"></i>确定
+        </button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-info btn-sm" type="button" onclick="cancel()">
+            <i class="ace-icon fa fa-times-circle bigger-110"></i>取消
+        </button>
+    </div>
+    <input type="hidden" id="id" name="id" value=""/>
+    <input type="hidden" id="goodsId" name="goodsId" value=""/>
+
+    <input type="hidden" id="uploadHotelPicture1Names" value="" class="form-control display_inline input-xlarge"/>
+    <input type="hidden" id="uploadHotelPicture2Names" value="" class="form-control display_inline input-xlarge"/>
+
+</form>
+</body>
+</html>

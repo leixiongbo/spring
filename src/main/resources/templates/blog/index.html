@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <meta lang="zh-CN">
+    <meta charset="utf-8">
+    <meta name="Description"
+          content="Leixb 的个人网站。24岁，没有上学。爱好摄影、计算机和数码产品，以及平面设计和三维效果制作。铁杆果粉，大中华区第一台行货 iPad 2 购得者。"/>
+    <meta name="keywords" content="翁天信,Dandy Weng"/>
+    <meta name="Author" contect="Dandy Weng"/>
+    <!-- Start for iOS -->
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="apple-touch-icon-precomposed" href="../static/img/blog/ios-touch.png"/>
+    <link rel="icon" href="../static/img/blog/leixb.jpg" />
+
+
+    <!-- iPhone/iPod Touch Portrait – 320 x 460 (standard resolution) -->
+
+
+    <link rel="apple-touch-startup-image" href="../static/img/blog/iphone-startup-image.png"
+          media="screen and (max-device-width: 320px)"/>
+    <!-- iPhone/iPod Touch Portrait – 640 x 920 pixels (high-resolution) -->
+    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)"
+          href="../static/img/blog/retina-startup-image.png"/>
+    <!-- For iPad Landscape 1024x748 -->
+    <link rel="apple-touch-startup-image" sizes="1024x748" href="../static/img/blog/ipad-startup-image-landscape.png"
+          media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)"/>
+    <!-- For iPad Portrait 768x1004 -->
+    <link rel="apple-touch-startup-image" sizes="768x1004" href="../static/img/blog/ipad-startup-image-portrait.png"
+          media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"/>
+    <!-- End for iOS -->
+    <link rel="shortcut icon" href="../static/img/blog/favicon.ico"/>
+    <title>博客 | Leixb's Blog</title>
+
+    <script type="text/javascript" src="../../static/js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            setTimeout(scrollTo, 0, 0, 1);
+        }, false);
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("img").hover(
+                function () {
+                    $(this).fadeTo(300, 0.65);
+                },
+                function () {
+                    $(this).fadeTo(350, 1);
+                });
+        });
+
+    </script>
+
+
+    <script language="Javascript">
+
+        function inprivate() {
+            alert("该联系方式暂时保密")
+        }
+
+        function dandyweng() {
+            alert("帐号：dandyweng")
+        }
+
+        function username() {
+            alert("用户名：Dandy Weng")
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        function load() {
+            $(document).ready(function () {
+                $("#spinner").fadeOut(550);
+            });
+        }
+
+        function show() {
+            setTimeout("load()", 800);
+        }
+    </script>
+
+    <script type="text/javascript">
+        function fanke() {
+            $(document).ready(function () {
+                $("#content-fanke").toggle(1000);
+            });
+        }
+    </script>
+
+
+    <!--[if lte IE 8]>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".ie-hidden").hide();
+        });
+    </script>
+    <![endif]-->
+
+</head>
+
+<style>
+    body {
+        background: #e2e2e2 url("../static/img/blog/background.jpg") repeat;
+    }
+
+    hr {
+        width: 85%;
+        background-color: #ccc;
+        border: 0;
+        height: 1px;
+        margin-bottom: 1.625em;
+    }
+
+    show {
+        display: none;
+    }
+
+    img, table, td, tr {
+        max-width: 100%;
+        height: auto;
+    }
+
+    blog {
+        max-width: 440px;
+        height: auto;
+    }
+
+    .list {
+
+    }
+
+    .content {
+        background: #ffffff;
+        margin: 40px auto;
+        width: 680px;
+        height: auto;
+        z-index: 999;
+
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+
+    }
+
+    .shadow {
+        background: url("../static/img/blog/shadow.png") no-repeat;
+        position: relative;
+        width: 679px;
+        height: 12px;
+        bottom: -12px;
+        left: 0.5px;
+    }
+
+    .quick-link, .quick-link-simple {
+        font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;;
+        float: right;
+        margin: -25px 20px 0 0;
+    }
+
+    .quick-link-simple {
+        display: none;
+        margin: -20px 15px 0 0;
+    }
+
+    #background {
+        background: -webkit-radial-gradient(50% 10%, transparent 35%, #505050) no-repeat;
+        opacity: 0.50;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -999;
+
+        -webkit-animation-name: background-gradient;
+        -webkit-animation-duration: 3s;
+    }
+
+    #title {
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, .20)), to(black));
+        -webkit-background-clip: text;
+        color: transparent;
+        position: relative;
+        padding: 15px;
+        margin: 0 auto;
+        max-width: 650px;
+        height: auto;
+        font: 60px "Times New Roman";
+        text-align: right;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, .50);
+
+        -webkit-animation-name: title-show;
+        -webkit-animation-duration: 1s;
+    }
+
+    #spinner {
+        background: url("../static/img/blog/spinner.gif") no-repeat;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin-left: -16px;
+        z-index: 9999;
+        width: 32px;
+        height: 32px;
+    }
+
+    #show1 {
+        -webkit-animation-name: first-show;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    #show2 {
+        -webkit-animation-name: second-show;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    #show3 {
+        -webkit-animation-name: third-show;
+        -webkit-animation-duration: 4s;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    #show4 {
+        -webkit-animation-name: fourth-show;
+        -webkit-animation-duration: 5s;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    #show5 {
+        -webkit-animation-name: fifth-show;
+        -webkit-animation-duration: 6s;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    /* --- Page 1 --- */
+
+    .content-picture-full {
+        max-width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #content-picture {
+        background: url("../static/img/blog/picture.jpg") no-repeat;
+        margin: -25px 25px 0 0;
+        width: 430px;
+        height: 200px;
+        float: right;
+
+        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .2), inset 0 4px 5px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(0, 0, 0, .6);
+        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .2), inset 0 4px 5px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(0, 0, 0, .6);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, .2), inset 0 4px 5px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(0, 0, 0, .6);
+
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    #content-fanke {
+        background: url("../static/img/blog/fanke.jpg") no-repeat top center;
+        margin: auto;
+        padding: 0 0 10px;
+        height: 248px;
+        max-width: 680px;
+        display: none;
+    }
+
+
+    /* --- Page 2 --- */
+
+    .contact table {
+        padding: 0 10px 25px 20px;
+    }
+
+    .contact td {
+        max-width: 100%;
+        height: auto;
+        font-size: 13px;
+        word-break: break-all;
+    }
+
+    #contact-tips {
+        background: #e2e2e2 url("../static/img/blog/background.jpg") repeat;
+        margin: -25px 25px 0 0;
+        width: 300px;
+        height: 130px;
+        float: right;
+
+        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .2), inset 0 4px 5px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(0, 0, 0, .6);
+        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .2), inset 0 4px 5px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(0, 0, 0, .6);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, .2), inset 0 4px 5px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(0, 0, 0, .6);
+
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    #contact-tips p {
+        padding: 10px 10px 0px 10px;
+    }
+
+    sns p img {
+        -webkit-box-shadow: 1px 2px 3px #b2b2b2;
+        -moz-box-shadow: 1px 2px 3px #b2b2b2;
+        box-shadow: 1px 2px 3px #b2b2b2;
+
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    sns p {
+        padding-left: 50px;
+    }
+
+    /* --- Text format --- */
+
+    p {
+        font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 0 25px 25px;
+    }
+
+    h1 {
+        font: 25px "微软雅黑", "黑体", Arial, sans-serif;
+        color: #e2e2e2;
+        padding: 10px 15px;
+        margin: 0;
+    }
+
+    h2 {
+        font: 18px "微软雅黑", "黑体", Arial, sans-serif;
+        text-align: center;
+        text-shadow: 1px 1px 2px #cccccc;
+    }
+
+    /* --- Link format --- */
+
+    a {
+        color: #244280;
+        -webkit-transition: color .5s linear;
+        -webkit-tap-highlight-color: #e2e2e2;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #990033;
+        -webkit-transition: color .5s linear;
+    }
+
+    a img {
+        border: none;
+    }
+
+
+    /* --- Other screen --- */
+
+    @media screen and (max-width: 715px) {
+
+        body {
+            background: #e2e2e2;
+            padding: 5px;
+        }
+
+        img {
+            text-align: center;
+        }
+
+        hidden {
+            display: none;
+        }
+
+        show {
+            display: block;
+        }
+
+        .content {
+            width: auto;
+            margin: 20px auto;
+            padding: 5px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+
+            box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, .20);
+            -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, .20);
+            -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, .20);
+        }
+
+        .shadow {
+            display: none;
+        }
+
+        .content-picture-full {
+            position: relative;
+            margin: auto;
+            padding: 10px;
+            max-width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        #contact-tips {
+            display: none;
+        }
+
+        html, body, p, div, h1, h2, h3, h4, h5, h6 {
+            -webkit-text-size-adjust: none;
+        }
+
+        p {
+            font-size: 13px;
+            padding: 0 15px 10px;
+        }
+
+        h1 {
+            font-size: 20px;
+            padding: 10px 15px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        #background {
+            display: none;
+        }
+
+        #title {
+            font-size: 30px;
+            padding: 5px;
+        }
+
+        #spinner {
+            height: 100%;
+        }
+
+        .quick-link {
+            display: none;
+        }
+
+        .quick-link-simple {
+            display: block;
+        }
+
+        .content-picture-full {
+            padding: 5px;
+        }
+
+        .contact table {
+            padding: 0 5px 15px 0;
+        }
+
+        p {
+            padding: 0 5px 5px;
+        }
+
+        h1 {
+            padding: 5px 10px;
+        }
+
+        h2 {
+            font-size: 17px;
+        }
+    }
+
+    @media screen and (min-width: 1435px) {
+        body {
+            padding: 22px;
+        }
+
+        .list {
+            margin: auto;
+            width: 1440px;
+        }
+
+        .content {
+            margin: 10px;
+            top: 30px;
+            float: left;
+        }
+
+        #title {
+            margin: -22px auto 22px auto;
+            max-width: 1000px;
+        }
+    }
+
+
+    /* --- Animations --- */
+
+    @-webkit-keyframes background-gradient {
+        0% {
+            background: -webkit-radial-gradient(50% 10%, transparent 80%, black) no-repeat;
+            opacity: 1;
+        }
+
+        90% {
+            background: -webkit-radial-gradient(50% 10%, transparent 55%, black) no-repeat;
+            opacity: 0.60;
+        }
+
+        100% {
+            background: -webkit-radial-gradient(50% 10%, transparent 35%, #505050) no-repeat;
+            opacity: 0.50;
+        }
+    }
+
+    @-webkit-keyframes title-show {
+        0% {
+            -webkit-transform: rotate(-50deg);
+            opacity: 0.30;
+        }
+
+        70% {
+            -webkit-transform: rotate(5deg);
+            opacity: 1;
+        }
+
+        100% {
+            -webkit-transform: rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes first-show {
+        0% {
+            display: none;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        70% {
+            display: block;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        100% {
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            -webkit-transform: scale(1.0) scaleZ(1.0);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 0;
+            -webkit-perspective-origin: 0% 0%;
+            -moz-transform: scale(1.0) scaleZ(1.0);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 0;
+            -moz-perspective-origin: 0% 0%;
+            -o-transform: scale(1.0) scaleZ(1.0);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 0;
+            -o-perspective-origin: 0% 0%;
+            -ms-transform: scale(1.0) scaleZ(1.0);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 0;
+            -ms-perspective-origin: 0% 0%;
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            perspective-origin: 0% 0%;
+        }
+    }
+
+    @-webkit-keyframes second-show {
+        0% {
+            display: none;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        70% {
+            display: block;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        100% {
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            -webkit-transform: scale(1.0) scaleZ(1.0);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 0;
+            -webkit-perspective-origin: 0% 0%;
+            -moz-transform: scale(1.0) scaleZ(1.0);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 0;
+            -moz-perspective-origin: 0% 0%;
+            -o-transform: scale(1.0) scaleZ(1.0);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 0;
+            -o-perspective-origin: 0% 0%;
+            -ms-transform: scale(1.0) scaleZ(1.0);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 0;
+            -ms-perspective-origin: 0% 0%;
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            perspective-origin: 0% 0%;
+        }
+    }
+
+    @-webkit-keyframes third-show {
+        0% {
+            display: none;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        70% {
+            display: block;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        100% {
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            -webkit-transform: scale(1.0) scaleZ(1.0);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 0;
+            -webkit-perspective-origin: 0% 0%;
+            -moz-transform: scale(1.0) scaleZ(1.0);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 0;
+            -moz-perspective-origin: 0% 0%;
+            -o-transform: scale(1.0) scaleZ(1.0);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 0;
+            -o-perspective-origin: 0% 0%;
+            -ms-transform: scale(1.0) scaleZ(1.0);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 0;
+            -ms-perspective-origin: 0% 0%;
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            perspective-origin: 0% 0%;
+        }
+    }
+
+    @-webkit-keyframes fourth-show {
+        0% {
+            display: none;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        70% {
+            display: block;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        100% {
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            -webkit-transform: scale(1.0) scaleZ(1.0);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 0;
+            -webkit-perspective-origin: 0% 0%;
+            -moz-transform: scale(1.0) scaleZ(1.0);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 0;
+            -moz-perspective-origin: 0% 0%;
+            -o-transform: scale(1.0) scaleZ(1.0);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 0;
+            -o-perspective-origin: 0% 0%;
+            -ms-transform: scale(1.0) scaleZ(1.0);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 0;
+            -ms-perspective-origin: 0% 0%;
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            perspective-origin: 0% 0%;
+        }
+    }
+
+    @-webkit-keyframes fifth-show {
+        0% {
+            display: none;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        70% {
+            display: block;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            -webkit-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 200px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 200px;
+            -moz-perspective-origin: 50% 50%;
+            -o-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 200;
+            -o-perspective-origin: 50% 50%;
+            -ms-transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 200;
+            -ms-perspective-origin: 50% 50%;
+            transform: scale(1.0) scaleZ(1.0) rotateX(-90deg);
+            transform-origin: 0% 0%;
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+
+        100% {
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            -webkit-transform: scale(1.0) scaleZ(1.0);
+            -webkit-transform-origin: 0% 0%;
+            -webkit-perspective: 0;
+            -webkit-perspective-origin: 0% 0%;
+            -moz-transform: scale(1.0) scaleZ(1.0);
+            -moz-transform-origin: 0% 0%;
+            -moz-perspective: 0;
+            -moz-perspective-origin: 0% 0%;
+            -o-transform: scale(1.0) scaleZ(1.0);
+            -o-transform-origin: 0% 0%;
+            -o-perspective: 0;
+            -o-perspective-origin: 0% 0%;
+            -ms-transform: scale(1.0) scaleZ(1.0);
+            -ms-transform-origin: 0% 0%;
+            -ms-perspective: 0;
+            -ms-perspective-origin: 0% 0%;
+            transform: scale(1.0) scaleZ(1.0);
+            transform-origin: 0% 0%;
+            perspective: 0;
+            perspective-origin: 0% 0%;
+        }
+    }
+</style>
+
+<body onLoad="show()" style="position: relative;">
+<div style=" width: 100%; height: 100%; position: absolute;">
+    <canvas id="cas" >
+    </canvas>
+</div>
+<script>
+    var canvas = document.getElementById("cas");
+    var ctx = canvas.getContext("2d");
+
+    resize();
+    window.onresize = resize;
+
+    function resize() {
+        canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    }
+
+    var RAF = (function() {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+    })();
+
+    // 鼠标活动时，获取鼠标坐标
+    var warea = {x: null, y: null, max: 20000};
+    window.onmousemove = function(e) {
+        e = e || window.event;
+
+        warea.x = e.clientX;
+        warea.y = e.clientY;
+    };
+    window.onmouseout = function(e) {
+        warea.x = null;
+        warea.y = null;
+    };
+
+    // 添加粒子
+    // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
+    var dots = [];
+    for (var i = 0; i < 300; i++) {
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+        var xa = Math.random() * 2 - 1;
+        var ya = Math.random() * 2 - 1;
+
+        dots.push({
+            x: x,
+            y: y,
+            xa: xa,
+            ya: ya,
+            max: 6000
+        })
+    }
+
+    // 延迟100秒开始执行动画，如果立即执行有时位置计算会出错
+    setTimeout(function() {
+        animate();
+    }, 100);
+
+    // 每一帧循环的逻辑
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 将鼠标坐标添加进去，产生一个用于比对距离的点数组
+        var ndots = [warea].concat(dots);
+
+        dots.forEach(function(dot) {
+
+            // 粒子位移
+            dot.x += dot.xa;
+            dot.y += dot.ya;
+
+            // 遇到边界将加速度反向
+            dot.xa *= (dot.x > canvas.width || dot.x < 0) ? -1 : 1;
+            dot.ya *= (dot.y > canvas.height || dot.y < 0) ? -1 : 1;
+
+            // 绘制点
+            ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+
+            // 循环比对粒子间的距离
+            for (var i = 0; i < ndots.length; i++) {
+                var d2 = ndots[i];
+
+                if (dot === d2 || d2.x === null || d2.y === null) continue;
+
+                var xc = dot.x - d2.x;
+                var yc = dot.y - d2.y;
+
+                // 两个粒子之间的距离
+                var dis = xc * xc + yc * yc;
+
+                // 距离比
+                var ratio;
+
+                // 如果两个粒子之间的距离小于粒子对象的max值，则在两个粒子间画线
+                if (dis < d2.max) {
+
+                    // 如果是鼠标，则让粒子向鼠标的位置移动
+                    if (d2 === warea && dis > (d2.max / 2)) {
+                        dot.x -= xc * 0.03;
+                        dot.y -= yc * 0.03;
+                    }
+
+                    // 计算距离比
+                    ratio = (d2.max - dis) / d2.max;
+
+                    // 画线
+                    ctx.beginPath();
+                    ctx.lineWidth = ratio / 2;
+                    ctx.strokeStyle = 'rgba(0,0,0,' + (ratio + 0.2) + ')';
+                    ctx.moveTo(dot.x, dot.y);
+                    ctx.lineTo(d2.x, d2.y);
+                    ctx.stroke();
+                }
+            }
+
+            // 将已经计算过的粒子从数组中删除
+            ndots.splice(ndots.indexOf(dot), 1);
+        });
+
+        RAF(animate);
+    }
+</script>
+
+<div style="position: relative;">
+    <div id="background"></div>
+    <div class="ie-hidden">
+        <div id="spinner"></div>
+    </div>
+    <div id="title">Leixb Blog</div>
+
+    <div class="list">
+        <div id="show1">
+            <div class="content">
+                <h1>我是</h1>
+                <hidden>
+                    <div id="content-picture"></div>
+                </hidden>
+                <p>
+                    一个爱<a href="http://www.camarts.cn/archives/category/tour" target="_blank">旅游</a>的人；<br>
+                    一个爱<a href="http://www.camarts.cn" target="_blank">摄影</a>的人；<br>
+                    一个爱设计的人；<br>
+                    一个铁杆“&#63743;<a href="http://www.hudong.com/wiki/%E6%9E%9C%E7%B2%89" target="_blank">果粉</a>”；<br>
+                    一个<a title="Homeschooler" href="http://en.wikipedia.org/wiki/Homeschooling" target="_blank">自学</a>但尚未成才的人；<br>
+                    一个爱倒腾<a href="http://blog.dandyweng.com" target="_blank">一切电子设备</a>的人；<br>
+                    一个对历史和科学很感冒的人；<br>
+                    ……<br></p>
+
+                <br>
+                <div class="ie-hidden">
+                    <show>
+                        <div class="content-picture-full"><img src="../static/img/blog/picture.jpg"></div>
+                    </show>
+                </div>
+
+                <p>
+                    我叫Leixb，今年 24岁，最近在学习前端知识，是一个 <a title="Homeschooler" href="http://en.wikipedia.org/wiki/Homeschooling"
+                                                    target="_blank">技术爱好者</a>。
+                    <!--                <a title="什么是大中华地区？"-->
+                    <!--                                                                                   href="http://zh.wikipedia.org/wiki/%E5%A4%A7%E4%B8%AD%E8%8F%AF%E5%9C%B0%E5%8D%80"-->
+                    <!--                                                                                   target="_blank">大中华地区</a><a-->
+                    <!--                    title="真的假的？点击查看真相"-->
+                    <!--                    href="http://www.google.com.hk/#hl=en&amp;safe=strict&amp;site=&amp;q=Dandy+Weng+iPad&amp;oq=Dandy+Weng+iPad&amp;aq=f&amp;aqi=&amp;aql=&amp;gs_sm=e&amp;gs_upl=2214l6026l0l6320l21l19l0l11l0l0l239l686l0.3.1l4l0&amp;bav=on.2,or.r_gc.r_pw.,cf.osb&amp;fp=b7f63e6f2a193eba&amp;biw=1422&amp;bih=739"-->
+                    <!--                    target="_blank">第一台行货 iPad 2 购得者</a>-->
+                    本人现在是一个Android开发工程师，从事过系统开发,Android开发,微信小程序开发等是一个全栈开发的工程师。技术分类：asp.net mvc  ,c# , java ,android  , springboot,html ,css ,js,mysql ,oracle 。<br>
+                    <br>
+
+                    <hidden>hello ，这里是我的<a href="javascript:;" onclick="fanke()">技术博文入口>></a></hidden>
+                </p>
+                <a href="http://baike.baidu.com/view/4055632.htm" title="什么是凡客体？" target="_blank">
+                    <div id="content-fanke"></div>
+                </a>
+
+                <br>
+                <div class="quick-link">快速链接：<a href="http://blog.dandyweng.com" title="进入我的博客" target="_blank">技术博文</a> |
+                    <a href="wall.html" title="进入我的个人摄影作品展示网站" target="_blank">线线分类&#8482;</a></div>
+                <!--            <div class="quick-link-simple"><a href="http://blog.dandyweng.com" title="进入我的博客" target="_blank">我的博客</a> |-->
+                <!--                <a href="wall.html" title="进入我的个人摄影作品展示网站" target="_blank">Camarts&#8482;</a></div>-->
+                <div class="shadow"></div>
+            </div>
+        </div>
+
+        <div id="show2">
+            <div class="content">
+                <h1>联系我</h1>
+                <br>
+                <div id="contact-tips">
+                    <ul>
+                        <li><p>iMessage、FaceTime 和 Game Center 帐号同邮箱；</p></li>
+                        <li><p>微信、TalkBox 等即时通讯帐号同微博；</p></li>
+                    </ul>
+
+                </div>
+
+                <div class="contact">
+                    <table border="0">
+                        <tr>
+                            <td align="right"><b>QQ：</b></td>
+                            <td align="left">2461552641
+                        </tr>
+                        <tr>
+                            <td align="right"><b>微博：</b></td>
+                            <td align="left">@Leixiongbo（<a href="http://t.qq.com/dandyweng" title="在腾讯微博收听我"
+                                                            target="_blank">腾讯</a>、<a href="http://weibo.com/dandyweng"
+                                                                                      title="在新浪微博关注我"
+                                                                                      target="_blank">新浪</a>、<a
+                                    href="http://twitter.com/dandyweng" title="Follow me on Twitter"
+                                    target="_blank">Twitter</a>）
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>邮箱：</b></td>
+                            <td align="left"><a href="mailto:dandyweng@dandyweng.com">Leixb@vip.qq.com</a></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>博客：</b></td>
+                            <td align="left"><a href="http://blog.dandyweng.com" target="_blank">blog.Leixb.com</a></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>网站：</b></td>
+                            <td align="left"><a href="http://www.camarts.cn" target="_blank">www.Leixb.me</a></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>github：</b></td>
+                            <td align="left"><a href="http://www.camarts.cn" target="_blank">https://github.com/leixiongbo</a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="ie-hidden">
+                    <show>
+                        <p><b style="color: red">*</b> iMessage、FaceTime 和 Game Center 帐号同邮箱，微信、TalkBox 等即时通讯帐号同微博。</p>
+                    </show>
+                </div>
+
+                <hidden>
+                    <p></p>
+                    <hr>
+                    <p style="padding-bottom: 5px;"><b>更多社交网络</b></p>
+                    <sns><p><a href="http://www.facebook.com/dandyweng" title="进入我的 Facebook" target="_blank"><img
+                            src="../static/img/blog/Facebook.png"></a>&nbsp;&nbsp;<a href="http://www.twitter.com/dandyweng"
+                                                                         title="进入我的 Twitter" target="_blank"><img
+                            src="../static/img/blog/Twitter.png"></a>&nbsp;&nbsp;<a href="http://weibo.com/dandyweng"
+                                                                        title="进入我的 新浪微博" target="_blank"><img
+                            src="../static/img/blog/sina-weibo.png"></a>&nbsp;&nbsp;<a href="http://t.qq.com/dandyweng"
+                                                                           title="进入我的 腾讯微博" target="_blank"><img
+                            src="../static/img/blog/tencent-weibo.png"></a>&nbsp;&nbsp;<a href="javascript:;" onClick="inprivate()"
+                                                                              title="获取我的 Path 帐号"><img
+                            src="../static/img/blog/Path.png"></a>&nbsp;&nbsp;<a href="javascript:;" onClick="username()"
+                                                                     title="获取我的 Instagram 名称"><img
+                            src="../static/img/blog/Instagram.png"></a>&nbsp;&nbsp;<a href="javascript:;" onClick="dandyweng()"
+                                                                          title="获取我的 微信 帐号"><img
+                            src="../static/img/blog/WeChat.png"></a>&nbsp;&nbsp;<a href="javascript:;" onClick="dandyweng()"
+                                                                       title="获取我的 WhatsApp 帐号"><img
+                            src="../static/img/blog/WhatsApp.png"></a>&nbsp;&nbsp;<a href="javascript:;" onClick="dandyweng()"
+                                                                         title="获取我的 TalkBox 帐号"><img
+                            src="../static/img/blog/TalkBox.png"></a>&nbsp;&nbsp;<a href="javascript:;" onCl·
+                                                                        ick="inprivate()"
+                                                                        title="进入我的 QQ 空间" target="_blank"><img
+                            src="../static/img/blog/Qzone.png"></a></p></sns>
+                </hidden>
+                <div class="shadow"></div>
+            </div>
+        </div>
+
+        <div id="show3">
+            <div class="content">
+                <h1>后台管理</h1>
+
+                <hidden>
+                    <a href="http://www.camarts.cn/tibet/" title="进入 Camarts&#8482; 的《西藏行》专题" target="_blank">
+                        <img src="../static/img/blog/camarts-picture-thumbnail.jpg" style="float: right; padding: 5px 15px 5px 5px"></a>
+                </hidden>
+
+                <a href="/blog/login" title="进入 Camarts&#8482; 的《西藏行》专题" target="_blank">
+                    <h2>《Family》</h2></a>
+
+                <div class="ie-hidden">
+                    <show>
+                        <div class="content-picture-full"><a href="http://www.camarts.cn/tibet/"
+                                                             title="进入 Camarts&#8482; 的《西藏行》专题" target="_blank"><img
+                                src="../static/img/blog/camarts-picture-thumbnail.jpg"></a></div>
+                    </show>
+                </div>
+
+                <blog>
+                    <p>我把这个模块取名叫《Family》,希望我能像经营一个家庭一样好好经营它，让自己的杂乱的生活从此变得简单，我的《Family》是一个后台管理系统，收集着自己比较重要东西,它记录着生活的点滴,沉淀着人生所走的美好时光。 <a
+                            href="/blog/login" title="进入 Camarts&#8482; 的《西藏行》专题" target="_blank">进入后台管理页面
+                        >></a><br><br><br><br></p>
+                </blog>
+
+                <!--            <div class="quick-link"><a href="http://www.camarts.cn" title="进入我的个人摄影作品展示网站" target="_blank">进入我的摄影网站-->
+                <!--                Camarts&#8482;，欣赏更多作品 >></a></div>-->
+                <!--            <div class="quick-link-simple"><a href="http://www.camarts.cn" title="进入我的个人摄影作品展示网站" target="_blank">欣赏更多作品-->
+                <!--                >></a></div>-->
+                <!--            <div class="shadow"></div>-->
+            </div>
+        </div>
+
+        <div id="show4">
+            <div class="content">
+                <h1>给力博文</h1>
+
+                <hidden>
+                    <a href="http://blog.dandyweng.com/2012/06/ios-6-beta-preview/" title="进入我的博客阅读完整文章" target="_blank">
+                        <img src="../static/img/blog/blog-picture-thumbnail.jpg" style="float: right; padding: 5px 16px 5px 5px"></a>
+                </hidden>
+
+                <a href="http://blog.dandyweng.com/2012/06/ios-6-beta-preview/" title="进入我的博客阅读完整文章" target="_blank">
+                    <h2>《iOS 6 Beta 深度体验》</h2></a>
+
+                <div class="ie-hidden">
+                    <show>
+                        <div class="content-picture-full"><a href="http://blog.dandyweng.com/2012/06/ios-6-beta-preview/"
+                                                             title="进入我的博客阅读完整文章" target="_blank"><img
+                                src="../static/img/blog/blog-picture-thumbnail.jpg"></a></div>
+                    </show>
+                </div>
+
+                <blog>
+                    <p>iOS 6 终于千呼万唤始出来了，昨天晚上通宵看完 WWDC，今天一早上起来就开始刷 iOS 6 Beta，体验了一下传说中的中文 Siri 和很多新功能。 <a
+                            href="http://blog.dandyweng.com/2012/06/ios-6-beta-preview/" title="进入我的博客阅读完整文章"
+                            target="_blank">查看全文 >></a><br><br><br><br><br><br></p>
+                </blog>
+
+                <div class="quick-link"><a href="http://blog.dandyweng.com" title="进入我的博客" target="_blank">进入我的博客，查看更多博文
+                    >></a></div>
+                <div class="quick-link-simple"><a href="http://blog.dandyweng.com" title="进入我的博客" target="_blank">查看更多博文
+                    >></a></div>
+                <div class="shadow"></div>
+            </div>
+        </div>
+
+        <!--    <div id="show5">-->
+        <!--        <div class="content">-->
+        <!--            <p style="text-align: center"><br>-->
+        <!--                <script type='text/javascript'>-->
+        <!--                    var d = new Date()-->
+        <!--                    document.write("Copyright &copy; 2010-" + d.getFullYear() + " Dandy Weng. All Rights Reserved.");-->
+        <!--                </script>-->
+        <!--                <br>页面内容正在完善中-->
+        <!--            </p>-->
+        <!--            <div class="shadow"></div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+
+    </div>
+</div>
+</body>
+</html>

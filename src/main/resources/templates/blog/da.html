@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/assets/bootstrap-3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/fileinput.min.css">
+    <script src="../../static/js/upload/jquery-2.0.3.min.js"></script>
+    <script src="../../static/js/upload/fileinput.min.js"></script>
+    <script src="../../static/js/upload/fileinput_locale_zh.js"></script>
+    <script src="../../static/assets/bootstrap-3.3.5/js/bootstrap.js"></script>
+
+    <script>
+        $(function () {
+            initFileInput("input-id");
+        });
+
+        function initFileInput(ctrlName) {
+            var control = $('#' + ctrlName);
+            var picNames="";
+            control.fileinput({
+                language: 'zh', //设置语言
+                uploadUrl: "http://127.0.0.1:8004/api/picshow/saveImages", //上传的地址
+                allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                // uploadExtraData:{"file": 1, "fileName":'123.mp3'},
+                uploadAsync: true, //默认异步上传
+                showUpload: true, //是否显示上传按钮
+                showRemove: true, //显示移除按钮
+                showPreview: true, //是否显示预览
+                showCaption: false,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式
+                maxFileCount: 5, //允许同时上传的最大文件个数
+                enctype: 'multipart/form-data',
+                validateInitialCount: true,
+                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+                // /*不同文件图标配置*/
+                // previewFileIconSettings: {
+                //     'docx': '<i class="fa fa-file-word-o text-primary" ></i>',
+                //     'xlsx': '<i class="fa fa-file-excel-o text-success"></i>',
+                //     'pptx': '<i class="fa fa-file-powerpoint-o text-danger"></i>',
+                //     'jpg': '<i class="fa fa-file-photo-o text-warning"></i>',
+                //     'pdf': '<i class="fa fa-file-pdf-o text-danger"></i>',
+                //     'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
+                //     'doc': '<i class="fa fa-file-word-o text-primary"></i>',
+                //     'xls': '<i class="fa fa-file-excel-o text-success"></i>',
+                //     'ppt': '<i class="fa fa-file-powerpoint-o text-danger"></i>',
+                //     'pdf': '<i class="fa fa-file-pdf-o text-danger"></i>',
+                //     'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
+                //     'htm': '<i class="fa fa-file-code-o text-info"></i>',
+                //     'txt': '<i class="fa fa-file-text-o text-info"></i>',
+                //     'mov': '<i class="fa fa-file-movie-o text-warning"></i>',
+                //     'mp3': '<i class="fa fa-file-audio-o text-warning"></i>',
+                //     'jpg': '<i class="fa fa-file-photo-o text-danger"></i>',
+                //     'gif': '<i class="fa fa-file-photo-o text-muted"></i>',
+                //     'png': '<i class="fa fa-file-photo-o text-primary"></i>'
+                // },
+
+                // layoutTemplates:{ actionUpload:''},
+                // /*上传成功之后运行*/
+                // fileuploaded:$('#' + ctrlName).on("fileuploaded", function (event, data, previewId, index) {
+                //     alert("成功");
+                // }),
+                //
+                // /*上传出错误处理*/
+                // fileerror:$('#' + ctrlName).on('fileerror', function(event, data, msg) {
+                //     alert("文件上传失败");
+                //     console.log("Upload failed")
+                // }),
+
+
+            }).on('filepreupload', function (event, data, previewId, index) {     //上传中
+                console.log('文件正在上传');
+                alert("文件正在上传");
+            }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
+             //   var objj = JSON.parse( data.response);
+
+                var obj = eval(data.response);
+             //   var objj = JSON.parse( obj);
+              alert(obj.result);
+
+                 $.each(obj.fileNames,function (k,v) {
+                     if(v!=null){
+                        // alert(picNames);
+
+                         if(v!="")
+                            picNames=v+","+picNames;
+                      //   v =v.split("/")[v.split("/").length-1];
+                     }
+                 })
+               $("#uploadHotelPicture1Names").val(picNames);
+                //
+
+                // var parjson = JSON.parse(response);
+                // console.log(parjson);//打印出路径
+                //  console.log(parjson.fileNames+"成功");//打印出返回的json
+                //
+
+                alert("成功");
+            }).on('fileerror', function (event, data, msg) {  //一个文件上传失败
+                //console.log('文件上传失败！'+data.status);
+                alert("文件上传失败");
+            }).on('filepreupload', function (event, data, previewId, index) {
+                alert("文件上传前");
+            });
+        }
+
+    </script>
+</head>
+<body STYLE="margin: 50px">
+<form class="form-horizontal js-ajax-form" action="/api/picshow/picSave" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <input id="input-id" name="file" multiple="multiple" type="file" data-show-caption="true" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="picType" class="col-sm-2 control-label">图片类型</label>
+        <div class="col-sm-10">
+            <input type="text" name="picType" class="form-control" id="picType"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">备注</label>
+        <div class="col-sm-10">
+          <textarea rows="5" cols="135" type="text" name="remark">
+          </textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default js-ajax-submit">提交</button>
+        </div>
+    </div>
+
+    <input type="hidden" id="uploadHotelPicture1Names"  name="uploadHotelPicture1Names" value="ceshi" class="form-control display_inline input-xlarge"/>
+</form>
+
+</body>
+</html>

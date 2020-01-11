@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" contect="富文本,富文本编辑器,富文本框,在线编辑器,html,web,javascript">
+    <meta name="Description" contect="wangEditor - 轻量级web富文本编辑器">
+    <title>wangEditor - 轻量级web富文本编辑器</title>
+
+    <style type="text/css">
+        .toolbar {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+        }
+        .text {
+            border: 1px solid #ccc;
+            height: 200px;
+        }
+        hr{
+            color:red ;
+            width:90%;
+            background-color: #f8f9fa;
+
+        }
+        body{
+
+        }
+
+
+        #div2{
+            overflow-x: hidden;
+            overflow-y: scroll;
+            /*opacity: 0.5;*/
+
+        }
+        #div2::-webkit-scrollbar{
+            border: 0;
+            display: none;
+            /*  width: 10px;
+              height: 20px;
+              display: block;
+              background-color: #eee;
+              opacity: 0.4;
+               position: absolute;
+              z-index: 99;
+              left: 0;*/
+        }
+        /*    .scrollbar::-webkit-scrollbar-button{
+              background-color: #000;
+              width: 20px;
+              height: 22px;
+              cursor: wait;
+            }*/
+        #div2:hover::-webkit-scrollbar{
+            width: 10px;
+            display: block;
+            background-color: transparent;
+        }
+        #div2::-webkit-scrollbar-thumb{
+            background-color: #eee;
+            width: 20px;
+            height: 22px;
+            cursor: wait;
+        }
+        #div2::-webkit-scrollbar-track {
+            position: absolute;
+            z-index: -1;
+            /*width: 1px;*/
+            /*width: 20px;*/
+            /*background-color: rgba(0, 0, 0, 0.4);*/
+            /*opacity: 0.5;*/
+            /*  position: absolute;
+              z-index: 99;
+              left: 0;
+              top: 20px;*/
+
+        }
+
+
+    </style>
+    <script src="../../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../../static/js/wangEditor.min.js"></script>
+
+
+    <script>
+        $(function (){
+            var E = window.wangEditor
+
+// $("#div2").css({
+//     position:fixers
+// })
+
+            // 工具栏在底部
+            var editor1 = new E('#div1', '#div2');
+            editor1.customConfig.uploadImgShowBase64 = true;
+            editor1.customConfig.menus = [
+                'head',
+                'bold',
+                'italic',
+                'underline'
+            ];
+         //   editor1.config.hideLinkImg = true;
+            editor1.create()
+
+
+
+
+            //  工具栏默认
+            var editor = new E('#divDemo');
+            var $text1 = $('#text1');
+            // editor.customConfig.menus = [
+            //     'head',
+            //     'bold',
+            //     'italic',
+            //     'underline'
+            // ]
+            editor.customConfig.uploadImgShowBase64 = true
+            // 配置服务器端地址
+            editor.customConfig.uploadImgServer = 'http://127.0.0.1:8004/uploadService/uploadImgp'
+            // editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+            // editor.customConfig.uploadImgMaxLength = 5;
+            editor.customConfig.uploadFileName = 'myFileName';
+            editor.customConfig.uploadImgHooks = {
+                customInsert: function (insertImg, result, editor) {
+
+                    // 图片上传并返回结果，自定义插入图片的事件（而不是编辑器自动插入图片！！！）
+
+                    // insertImg 是插入图片的函数，editor 是编辑器对象，result 是服务器端返回的结果
+
+                    // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
+                    alert(result);
+                    var url =result.data;
+alert(url);
+                    insertImg(url);
+
+                    // result 必须是一个 JSON 格式字符串！！！否则报错
+
+                }
+
+            }
+
+            editor.customConfig.onchange = function (html) {
+
+                // 监控变化，同步更新到 textarea
+
+                $text1.val(html);
+
+            }
+            editor.create();
+
+            // 初始化 textarea 的值
+            $text1.val(editor.txt.html());
+
+
+        });
+
+    </script>
+
+    <!--<script type="text/javascript" src="index.js"></script>-->
+</head>
+<body style="text-align:center;overflow :hidden;background: #F8F8FF;">
+
+
+<form class="form-horizontal js-ajax-form" action="/api/picshow/aticleShow" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="picType" class="col-sm-2 control-label">文章标题</label>
+        <div class="col-sm-10">
+            <input type="text" name="title" class="form-control" id="picType"/>
+        </div>
+    </div>
+
+    <!-- body container -->
+    <div class="container">
+        <center>
+            <!--demo-->
+            <div style="text-align:left;">
+                <div id="divDemo"><p>欢迎使用<b>wangEditor 富文本编辑器</b>，请输入内容...</p></div>
+            </div><!--demo end-->
+
+        </center>
+        <textarea style="visibility:hidden;" class="xtl-editor-content" id="text1" name="content" placeholder="请输入内容"></textarea>
+    </div><!-- body container end -->
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default js-ajax-submit">提交</button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+
+
+<!--<div style="margin-top: 50px ;margin-left: 20px; margin-right: 20px;background: #FFFFFF " >-->
+    <!--<HEADER  >-->
+        <!--<span src="images/delete.png" height="40" width="40"/> <H3>我要投稿</H3> <label><a>发布</a></label>-->
+    <!--</HEADER>-->
+    <!--<div >-->
+        <!--<input placeholder="输入标题（最多30字）" maxlength="60字"/>-->
+        <!--<span><label>0</label>字</span>-->
+        <!--<hr style="height:1px;border:none;border-top:1px solid #E6E6FA"/>-->
+    <!--</div>-->
+
+    <!--<div id="div2"  >-->
+        <!--<p>输入正文，不少于300字！</p>-->
+    <!--</div>-->
+    <!--<div id="div1" class="toolbar">-->
+    <!--</div>-->
+<!--</div>-->
+
+</body>
+</html>

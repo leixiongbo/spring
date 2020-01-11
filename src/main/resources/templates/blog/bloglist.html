@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body style="text-align:center;background: #F8F8FF;">
+<b>博客页面</b><br>
+<tr th:each="list : ${listmap}">
+    <td>
+        <!--这里获取这个id的值 或者是list,然后用这个listitem值去渲染下一个页面或者用id去查询这条数据渲染下一个页面-->
+        <div><a th:href="@{'/api/picshow/dianjiaticleShow?model='+${list}}"  th:text="${list.getTitle()}"></a></div></td>
+</body>
+</html>
