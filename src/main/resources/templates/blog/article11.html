@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax请求json数据</title>
+</head>
+<body>
+<div id="test">11111</div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    $(function(){
+
+        $.ajax({
+            //请求方式
+            type:"GET",
+            //文件位置
+            url:"http://127.0.0.1:8004/api/artilce/aitletitle",
+            //返回数据格式为json,也可以是其他格式如
+            dataType: "json",
+            //请求成功后要执行的函数，拼接html
+            success: function(data){
+
+                var str="<ul id='content'>";
+                $.each(data.result,function(i,n){
+                    // console.log("ceshi:"+JSON.stringify(n.content))
+                    var xxx =n.content+'';
+                    str+="<li id='n.id' class='tiaozhuang' data-content=JSON.stringify(n.content)>"+"ID："+n.id+"</li>";
+                    str+="<li>"+"标题："+n.title+"</li>";
+                    str+="<li>"+"地址："+n.creattime+"</li>";
+                });
+                str+="</ul>";
+                $("div").append(str);
+
+                var content = $("#content").find("li");
+                content.each(function(index,e){
+                    console.log("ceshi:"+JSON.stringify(e))
+                   alert(e)
+                    var id = e.getAttribute('id');
+                    $('.'+id).on('click',function(){
+                        var content = this.getAttribute("data-content");
+                        alert("1111"+content)
+                        var  url = "articlecontent.html?content="+content;//此处拼接内容
+                        window.location.href = url;
+                    })
+
+                })
+
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>

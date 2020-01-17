@@ -81,17 +81,17 @@ public class PicShowController {
         }
     }
 
-    //todo h获取博文数据
-    @RequestMapping(value = "/aitlealldata", method = RequestMethod.GET)
-    public ModelMap getAlitleDta(HttpServletRequest request) {
-        try {
-            List<LifeShare> lifeShareList = lifeShareMapper.selectAll();
-            return ReturnUtil.Success(null, lifeShareList, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ReturnUtil.Error(null, null, null);
-        }
-    }
+//    //todo h获取博文数据
+//    @RequestMapping(value = "/aitlealldata", method = RequestMethod.GET)
+//    public ModelMap getAlitleDta(HttpServletRequest request) {
+//        try {
+//            List<LifeShare> lifeShareList = lifeShareMapper.selectAllData();
+//            return ReturnUtil.Success(null, lifeShareList, null);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return ReturnUtil.Error(null, null, null);
+//        }
+//    }
 
 
     // todo  http://127.0.0.1:8004/api/picshow/uploader

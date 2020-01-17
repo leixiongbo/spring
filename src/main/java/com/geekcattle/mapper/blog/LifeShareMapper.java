@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface LifeShareMapper extends CustomerMapper<LifeShare> {
-    List<LifeShare> selectAll();
-
+    List<LifeShare> selectAllData();
+    LifeShare selectAllDataById(String id);
 }

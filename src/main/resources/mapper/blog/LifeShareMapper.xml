@@ -11,8 +11,13 @@
     </resultMap>
 
     <!--根据用户名获取用户信息-->
-    <select id="selectAll" parameterType="String" resultMap="BaseResultMap">
+    <select id="selectAllData" parameterType="String" resultMap="BaseResultMap">
         select *  from blog_show;
+    </select>
+
+    <!--根据用户名获取用户信息-->
+    <select id="selectAllDataById" parameterType="String" resultMap="BaseResultMap">
+        select *  from blog_show where id = #{id};;
     </select>
 
 </mapper>
