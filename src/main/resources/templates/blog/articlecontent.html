@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax请求json数据</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+     $(function(){
+        var content = $.query.get("content");
+         document.getElementById("test").innerHTML=content;
+    //     $.ajax({
+    //         //请求方式
+    //         type:"GET",
+    //         //文件位置
+    //         url:"http://127.0.0.1:8004/api/artilce/aitlecontent",
+    //         //返回数据格式为json,也可以是其他格式如
+    //         dataType: "json",
+    //
+    //         //请求成功后要执行的函数，拼接html
+    //         success: function(data){
+    //              var str=data;
+    //             // $.each(data.result,function(i,n){
+    //             //     str+="<li><a>"+"ID："+n.id+"</a></li>";
+    //             //     str+="<li>"+"标题："+n.title+"</li>";
+    //             //     str+="<li>"+"地址："+n.creattime+"</li>";
+    //             // });
+    //             // str+="</ul>";
+    //
+    //             $("div").append(str);
+    //         }
+    //     });
+     });
+</script>
+</body>
+</html>
